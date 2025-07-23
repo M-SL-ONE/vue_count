@@ -2,16 +2,19 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <CountItem/>
+    <hr>
+    <PersonItem/>
   </div>
 </template>
 
 <script>
 import CountItem from './components/Count.vue'
+import PersonItem from './components/Person.vue'
 
 export default {
   name: 'App',
   components: {
-    CountItem
+    CountItem,PersonItem
   }
 }
 </script>

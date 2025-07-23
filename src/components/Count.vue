@@ -2,6 +2,7 @@
   <div>
     <h1>当前求和为：{{ sum }}</h1>
     <h1>当前求和放大10倍为：{{ bigSum }}</h1>
+    <h3 style="color: red;">Person组件总人数：{{ personList.length }}</h3>
     <select name="" id="" v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -33,7 +34,7 @@ export default {
     // ...mapState({sum:'sum'}),
 
     // 借助mapState生成计算属性，从state中读取数据（数组写法）
-    ...mapState(['sum']),
+    ...mapState(['sum','personList']),
 
     // bigSum(){
     //     return this.$store.getters.bigSum
@@ -78,7 +79,7 @@ export default {
         
     // //   }, 500);
     // },
-    
+
     // 借助mapActions生成计算属性，从state中读取数据（对象写法））
     ...mapActions({incrementOdd:'addOdd',incrementWait:'addWait'})
   },

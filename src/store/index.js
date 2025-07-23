@@ -34,12 +34,19 @@ const mutations = {
     },
     JIAN(state, value) {
         state.sum -= value
+    },
+    ADD_PERSON(state,value){
+        state.personList.unshift(value)
     }
 }
 
 // 准必state，用户存储数据
 const state = {
     sum: 10, //当前的和
+    personList:[{
+        id:0,
+        name:'张三'
+    }]
 }
 
 // 准备getters-用于将state中的数据进行加工
