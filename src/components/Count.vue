@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>当前求和为：{{ $store.state.sum }}</h1>
+    <h1>当前求和为：{{ sum }}</h1>
+    <h1>当前求和放大10倍为：{{ bigSum }}</h1>
     <select name="" id="" v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -14,12 +15,35 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex';
 export default {
   name: "CountItem",
   data() {
     return {
       n: 1, // 用户选择的数字
     };
+  },
+  computed:{
+
+    // sum(){
+    //     return this.$store.state.sum
+    // },
+
+    // 借助mapState生成计算属性，从state中读取数据（对象写法））
+    // ...mapState({sum:'sum'}),
+
+    // 借助mapState生成计算属性，从state中读取数据（数组写法）
+    ...mapState(['sum']),
+
+    // bigSum(){
+    //     return this.$store.getters.bigSum
+    // }
+    
+    // 借助mapState生成计算属性，从state中读取数据（对象写法））
+    ...mapGetters({bigSum:'bigSum'}),
+
+    // 借助mapState生成计算属性，从state中读取数据（数组写法）
+    // ...mapGetters(['bigSum'])
   },
   methods: {
     increment() {
@@ -50,6 +74,8 @@ export default {
   },
   mounted() {
     // console.log(this)
+    // const x = mapState({sum:'sum'})
+    // console.log(x)
   },
 };
 </script>
