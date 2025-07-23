@@ -8,59 +8,40 @@ import Vuex from "vuex"
 // 使用插件
 Vue.use(Vuex)
 
-// 准备actions-用户响应组件中的动作
-const actions = {
-    // add(context, value) {
-    //     context.commit('ADD', value)
-    // },
-    // jian(context, value) {
-    //     context.commit('JIAN', value)
-    // },
-    addOdd(context, value) {
-        if (context.state.sum % 2) context.commit('ADD', value)
-    },
-    addWait(context, value) {
-        setTimeout(() => {
-            context.commit('ADD', value)
-        }, 500)
+import countOptions from './count'
+import personOptions from './person'
 
-    },
-}
 
-// 准备mutations-用户操作数据（state）
-const mutations = {
-    ADD(state, value) {
-        state.sum += value
-    },
-    JIAN(state, value) {
-        state.sum -= value
-    },
-    ADD_PERSON(state,value){
-        state.personList.unshift(value)
-    }
-}
 
-// 准必state，用户存储数据
-const state = {
-    sum: 10, //当前的和
-    personList:[{
-        id:0,
-        name:'张三'
-    }]
-}
 
-// 准备getters-用于将state中的数据进行加工
-const getters = {
-    bigSum(state){
-        return state.sum *10
-    }
-}
+// // 准备actions-用户响应组件中的动作
+// const actions = {
+// }
+
+// // 准备mutations-用户操作数据（state）
+// const mutations = {
+// }
+
+// // 准必state，用户存储数据
+// const state = {
+// }
+
+// // 准备getters-用于将state中的数据进行加工
+// const getters = {
+// }
 
 // 创建并暴露store
+// export default new Vuex.Store({
+//     actions,
+//     mutations,
+//     state,
+//     getters
+// })
+
 export default new Vuex.Store({
-    actions,
-    mutations,
-    state,
-    getters
+    modules:{
+        countOptions,
+        personOptions
+    }
 })
 

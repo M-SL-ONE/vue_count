@@ -34,14 +34,17 @@ export default {
     // ...mapState({sum:'sum'}),
 
     // 借助mapState生成计算属性，从state中读取数据（数组写法）
-    ...mapState(['sum','personList']),
+    // ...mapState(['sum','personList']),
+    // ...mapState(['sum','personList']),
+    ...mapState('countOptions',['sum']),
+    ...mapState('personOptions',['personList']),
 
     // bigSum(){
     //     return this.$store.getters.bigSum
     // }
 
     // 借助mapState生成计算属性，从state中读取数据（对象写法））
-    ...mapGetters({bigSum:'bigSum'}),
+    ...mapGetters('countOptions',{bigSum:'bigSum'}),
 
     // 借助mapState生成计算属性，从state中读取数据（数组写法）
     // ...mapGetters(['bigSum'])
@@ -59,7 +62,8 @@ export default {
     // },
 
     // 借助mapMutations生成计算属性，从state中读取数据（对象写法））
-    ...mapMutations({increment:`ADD`,decrement:"JIAN"}),
+    // ...mapMutations({increment:`ADD`,decrement:"JIAN"}),
+    ...mapMutations('countOptions',{increment:`ADD`,decrement:"JIAN"}),
 
     /**
      * 
@@ -81,10 +85,10 @@ export default {
     // },
 
     // 借助mapActions生成计算属性，从state中读取数据（对象写法））
-    ...mapActions({incrementOdd:'addOdd',incrementWait:'addWait'})
+    ...mapActions('countOptions',{incrementOdd:'addOdd',incrementWait:'addWait'})
   },
   mounted() {
-    // console.log(this)
+    console.log(this.$store)
     // const x = mapState({sum:'sum'})
     // console.log(x)
   },
